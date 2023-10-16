@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 const port = process.env.PORT || 3000;
+const path = require('path');
 const fs = require('fs');
 
 const home = fs.readFileSync("home.html");
@@ -14,7 +14,9 @@ app.set('view engine', 'html');
 app.get("/", (req,res)=>{
     res.status(200).sendFile(__dirname + '/home.html');
 });
-app.listen(port);
+app.listen(port, ()=>{
+    console.log(`http://127.0.0.1:${port}`);
+});
 
 // app.post('/', (req, res)=>{
 //     let name = req.body.name;
