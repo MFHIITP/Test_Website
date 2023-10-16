@@ -12,12 +12,8 @@ app.use(express.urlencoded());
 app.set('view engine', 'html');
 
 app.get("/", (req,res)=>{
-    res.status(200).sendFile(__dirname + '/home.html');
+    res.send("The data is saved");
 });
-app.listen(port, ()=>{
-    console.log(`http://127.0.0.1:${port}`);
-});
-
 app.post('/', (req, res)=>{
     let name = req.body.name;
     let number = req.body.age;
@@ -32,6 +28,10 @@ app.post('/', (req, res)=>{
     fs.writeFileSync("output.txt", output);
     res.status(200).sendFile(__dirname + '/home.html');
 });
+app.listen(port, ()=>{
+    console.log(`http://127.0.0.1:${port}`);
+});
+
 
 // const server = "127.0.0.1:27017";
 // const database = "Test_Database";
