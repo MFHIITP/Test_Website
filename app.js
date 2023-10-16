@@ -36,7 +36,7 @@ const database = "Test_Database";
 const mongoose = require("mongoose");
 const connect = async()=>{
     try{
-        await mongoose.connect(`mongodb://${server}/${database}`);
+        await mongoose.connect(`${server}/${database}`);
         console.log("Connection successful");
     }
     catch(err){
