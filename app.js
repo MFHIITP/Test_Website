@@ -58,7 +58,8 @@ var schema = new mongoose.Schema({
 var Collection1 = mongoose.model("Collection 1", schema);
 
 app.post('/', (req, res)=>{
-    var data = new Collection1(req.body);
+    var string = JSON.stringify(req.body);
+    var data = new Collection1(JSON.parse(string));
     data.save().then(()=>{
         res.status(200).sendFile(__dirname + '/home.html');
     }).catch(()=>{
