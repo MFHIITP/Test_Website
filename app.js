@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const hostname = '127.0.0.1';
-const port = 80;
+const port = process.env.PORT || 3000;
 const fs = require('fs');
 
 const home = fs.readFileSync("home.html");
@@ -14,7 +13,7 @@ app.set('view engine', 'html');
 app.get("/", (req,res)=>{
     res.status(200).end(home);
 });
-app.listen(port, hostname, ()=>{
+app.listen(port, ()=>{
     console.log(`The server is live at http://${hostname}:${port}`);
 });
 
