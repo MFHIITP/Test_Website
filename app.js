@@ -4,7 +4,7 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const fs = require('fs');
 
-const home = fs.readFileSync("home.html");
+const home = fs.appendFileSync("home.html");
 
 app.set('/test_website');
 app.use(express.urlencoded());
