@@ -14,6 +14,10 @@ app.set('view engine', 'html');
 app.get("/", (req,res)=>{
     res.status(200).sendFile(__dirname + '/home.html');
 });
+app.listen(port, ()=>{
+    console.log(`http://127.0.0.1:${port}`);
+});
+
 // app.post('/', (req, res)=>{
 //     let name = req.body.name;
 //     let number = req.body.age;
@@ -26,9 +30,8 @@ app.get("/", (req,res)=>{
 //     The addrsss is ${address}`;
 
 //     fs.writeFileSync("output.txt", output);
-//     res.send("The data is saved");
+//     res.status(200).end(home);
 // });
-
 
 const server = "hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net";
 const database = "Test_Database";
@@ -61,8 +64,4 @@ app.post('/', (req, res)=>{
     }).catch(()=>{
         res.send("The data has not been send");
     });
-});
-
-app.listen(port, ()=>{
-    console.log(`http://127.0.0.1:${port}`);
 });
