@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 3000;
 const fs = require('fs');
 
@@ -11,7 +12,7 @@ app.use(express.urlencoded());
 app.set('view engine', 'html');
 
 app.get("/", (req,res)=>{
-    res.status(200).end(home);
+    res.status(200).sendFile(__dirname + '/home.html');
 });
 app.listen(port);
 
