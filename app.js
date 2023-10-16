@@ -13,9 +13,7 @@ app.set('view engine', 'html');
 app.get("/", (req,res)=>{
     res.status(200).end(home);
 });
-app.listen(port, ()=>{
-    console.log(`The server is live at http://${hostname}:${port}`);
-});
+app.listen(port);
 
 // app.post('/', (req, res)=>{
 //     let name = req.body.name;
