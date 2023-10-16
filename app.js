@@ -12,7 +12,7 @@ app.use(express.urlencoded());
 app.set('view engine', 'html');
 
 app.get("/", (req,res)=>{
-    res.send("The data is saved");
+    res.status(200).sendFile(__dirname + '/home.html');
 });
 app.post('/', (req, res)=>{
     let name = req.body.name;
@@ -26,7 +26,7 @@ app.post('/', (req, res)=>{
     The addrsss is ${address}`;
 
     fs.writeFileSync("output.txt", output);
-    res.status(200).sendFile(__dirname + '/home.html');
+    res.send("The data is saved");
 });
 app.listen(port, ()=>{
     console.log(`http://127.0.0.1:${port}`);
