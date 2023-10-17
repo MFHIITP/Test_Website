@@ -33,7 +33,7 @@ app.listen(port, ()=>{
 //     res.status(200).end(home);
 // });
 
-const server = "//hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net/?retryWrites=true&w=majority";
+const server = "hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net/?retryWrites=true&w=majority";
 const database = "Test_Database";
 
 const mongoose = require("mongoose");
