@@ -33,13 +33,13 @@ app.listen(port, ()=>{
 //     res.status(200).end(home);
 // });
 
-const server = "hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net/?retryWrites=true&w=majority";
+const server = "hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net";
 const database = "Test_Database";
 
 const mongoose = require("mongoose");
 const connect = async()=>{
     try{
-        await mongoose.connect(`mongodb://${server}/${database}`);
+        await mongoose.connect(`mongodb+srv://${server}/${database}`);
         console.log("Connection successful");
     }
     catch(err){
@@ -58,12 +58,10 @@ var schema = new mongoose.Schema({
 var Collection1 = mongoose.model("Collection 1", schema);
 
 app.post('/', (req, res)=>{
-    var string = JSON.stringify(req.body);
-    var data = new Collection1(JSON.parse(string));
+    var data = new Collection1(req.body);
     data.save().then(()=>{
         res.status(200).sendFile(__dirname + '/home.html');
     }).catch(()=>{
         res.send("The data has not been send");
     });
 });
-
