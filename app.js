@@ -33,7 +33,7 @@ app.listen(port, ()=>{
 //     res.status(200).end(home);
 // });
 
-const server = "136.232.88.2/32";
+const server = "//hossainfarshid:JUITfh-891@clusterfarshid.vcl5snh.mongodb.net/?retryWrites=true&w=majority";
 const database = "Test_Database";
 
 const mongoose = require("mongoose");
@@ -66,3 +66,4 @@ app.post('/', (req, res)=>{
         res.send("The data has not been send");
     });
 });
+
